@@ -20,7 +20,6 @@ class Auth {
     }
     
     public function callForToken() {
-        //echo 'executing call for token <br/>';
         $ch = curl_init($this->config->getProperty("environment")."/v2/auth/token");
         $headers = array(
             'Authorization : Basic '.$this->buildCredentials(),
