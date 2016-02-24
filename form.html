@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<style>
+	<!--
+	#overlay {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		background: #000;
+		opacity: 0.3;
+		filter: alpha(opacity=80);
+	}
+	#loading {
+		width: 300px;
+		height: 300px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -28px 0 0 -25px;
+	}
+	-->
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<script>
+    $(document).ready(function(){
+	$("#workflow-form").submit(function(event) {
+		var over = '<div id="overlay">' +
+            '<img id="loading" src="http://www.swellalerts.com/img/plane_loading.gif"/>' +
+            '</div>';
+        $(over).appendTo('body');
+		$.post($(this).attr('action'), $(this).serialize(), function(json) {
+                    console.log(json);
+                    //$("#results").text(JSON.stringify(json, null, 2));
+                    $("#results").text(json);
+                    $('#overlay').remove();
+		});
+		return false;
+	});
+    }); 	
+        </script>
+	</head>
+	<body>
+		<div class="col-md-3">
+			<form method="post" id="workflow-form" action="start_workflow.php">
+				<div class="row">
+				<label for="origin" class="col-md-4">Origin:</label>
+				<input type="text" name="origin" id="origin" value="LAX" class="col-md-8"/>
+		</div>
+				<div class="row">
+				<label for="destination" class="col-md-4">Destination:</label>
+				<input type="text" name="destination" id="destination" value="JFK" class="col-md-8"/>
+		</div>
+				<div class="row">
+				<label for="departureDate" class="col-md-4">Departure date:</label>
+				<input type="date" name="departureDate" id="departureDate" value="2016-03-30" class="col-md-8"/>
+		</div>
+				<div class="row">
+				<input type="submit" value="Run workflow" id="trigger"/>
+		</div>
+			</form>
+		</div>
+		<div class="col-md-9">
+			Results
+			<pre id="results"></pre>
+		</div>
+	</body>
+</html>
