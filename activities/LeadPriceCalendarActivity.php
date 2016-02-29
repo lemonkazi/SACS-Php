@@ -28,17 +28,18 @@ class LeadPriceCalendarActivity implements Activity {
         $sharedContext->addResult("destination", $this->destination);
         $sharedContext->addResult("departureDate", $this->departureDate);
         $call = new RestClient();
-        $result = $call->executeGetCall("/v2/shop/flights/fares", $this->getRequest());
+        $result = $call->executeGetCall("/v2/shop/flights/fares", $this->getRequest($this->origin, $this->destination, $this->departureDate));
         $sharedContext->addResult("LeadPriceCalendar", $result);
         return new InstaFlightActivity();
     }
     
-    private function getRequest() {
+    private function getRequest($origin, $destination, $departureDate) {
         $request = array(
                 "lengthofstay" => "5",
                 "pointofsalecountry" => "US",
-                "origin" => "LAX",
-                "destination" => "JFK"
+                "origin" => $origin,
+                "destination" => $destination,
+                "departuredate" => $departureDate
         );
         return $request;
     }
