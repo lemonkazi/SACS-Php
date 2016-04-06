@@ -1,16 +1,6 @@
 <?php
-include_once './SACSConfig.php';
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include_once 'configuration/SACSConfig.php';
 
-/**
- * Description of Auth
- *
- * @author SG0946321
- */
 class Auth {
     
     private $config;
@@ -20,7 +10,7 @@ class Auth {
     }
     
     public function callForToken() {
-        $ch = curl_init($this->config->getProperty("environment")."/v2/auth/token");
+        $ch = curl_init($this->config->getRestProperty("environment")."/v2/auth/token");
         $headers = array(
             'Authorization : Basic '.$this->buildCredentials(),
             'Accept : */*',
@@ -39,11 +29,11 @@ class Auth {
     }
     
     private function buildCredentials() {
-        $credentials = $this->config->getProperty("formatVersion").":".
-                $this->config->getProperty("userId").":".
-                $this->config->getProperty("group").":".
-                $this->config->getProperty("domain");
-        $secret = base64_encode($this->config->getProperty("secret"));
+        $credentials = $this->config->getRestProperty("formatVersion").":".
+                $this->config->getRestProperty("userId").":".
+                $this->config->getRestProperty("group").":".
+                $this->config->getRestProperty("domain");
+        $secret = base64_encode($this->config->getRestProperty("secret"));
         return base64_encode(base64_encode($credentials).":".$secret);
     }
 }

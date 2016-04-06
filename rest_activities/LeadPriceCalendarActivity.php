@@ -1,18 +1,8 @@
 <?php
 include_once 'workflow/Activity.php';
 include_once 'rest/RestClient.php';
-include_once 'activities/InstaFlightActivity.php';
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include_once 'rest_activities/InstaFlightActivity.php';
 
-/**
- * Description of LeadPriceCalendarActivity
- *
- * @author SG0946321
- */
 class LeadPriceCalendarActivity implements Activity {
 
     private $origin, $destination, $departureDate;

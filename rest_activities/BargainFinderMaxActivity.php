@@ -1,17 +1,7 @@
 <?php
 
 include_once 'workflow/Activity.php';
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * Description of BargainFinderMaxActivity
- *
- * @author SG0946321
- */
 class BargainFinderMaxActivity implements Activity {
 
     public function run(&$sharedContext) {

@@ -1,21 +1,11 @@
 <?php
-include_once 'SACSConfig.php';
-include_once 'TokenHolder.php';
+include_once 'configuration/SACSConfig.php';
+include_once 'rest/TokenHolder.php';
 define("GET", "GET");
 define("POST", "POST");
 define("PUT", "PUT");
 define("DELETE", "DELETE");
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * Description of RestClient
- *
- * @author SG0946321
- */
 class RestClient {
     
     private $config;
@@ -55,12 +45,12 @@ class RestClient {
         case GET:
             $url = $path;
             if ($request != null) {
-                $url = $this->config->getProperty("environment").$path.'?'.http_build_query($request);
+                $url = $this->config->getRestProperty("environment").$path.'?'.http_build_query($request);
             }
             curl_setopt($ch, CURLOPT_URL, $url);
             break;
         case POST:
-            curl_setopt($ch, CURLOPT_URL, $this->config->getProperty("environment").$path);
+            curl_setopt($ch, CURLOPT_URL, $this->config->getRestProperty("environment").$path);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
             array_push($headers, 'Content-Type : application/json');
             break;
