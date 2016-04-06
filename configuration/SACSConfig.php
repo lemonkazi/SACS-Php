@@ -7,7 +7,7 @@ class SACSConfig {
     
     function SACSConfig() {
         $this->restConfig = parse_ini_file("SACSRestConfig.ini");
-        $this->soapConfig = parse_ini_file("SACSSoapConfig.ini");
+        //$this->soapConfig = parse_ini_file("SACSSoapConfig.ini");
     }
     
     public function getRestProperty($propertyName) {
