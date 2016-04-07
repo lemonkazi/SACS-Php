@@ -33,7 +33,7 @@ class Auth {
                 $this->config->getRestProperty("userId").":".
                 $this->config->getRestProperty("group").":".
                 $this->config->getRestProperty("domain");
-        $secret = base64_encode($this->config->getRestProperty("secret"));
+        $secret = base64_encode($this->config->getRestProperty("clientSecret"));
         return base64_encode(base64_encode($credentials).":".$secret);
     }
 }
