@@ -11,11 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include_once "workflow/Workflow.php";
-        include_once 'activities/LeadPriceCalendarActivity.php';
-        $workflow = new Workflow(new LeadPriceCalendarActivity());
-        $result = $workflow->runWorkflow();
-        var_dump($result);
+        phpinfo();
         ?>
     </body>
 </html>
