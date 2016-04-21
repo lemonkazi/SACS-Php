@@ -9,6 +9,10 @@ Although the credentials are not encrypted right now to lower the project entry 
 Please register at https://developer.sabre.com in order to obtain your own credentials.
 
 ## Running the application
+In the php.ini file, enable the following modules by uncommenting those lines:
+extension=php_curl.dll
+extension=php_mbstring.dll
+extension=php_openssl.dll
 ## Quickstart “How to”
 The workflow’s activities are written as implementation of the Activity interface from the *workflow* folder, which contains one abstract method *run()* which takes the shared context as the parameter. The implementation should construct the request object (or just setup the URL, like in the *InstaFlight* case), execute a rest call, insert the call’s result into the *sharedContext* and return the next activity to be run.
 
