@@ -7,7 +7,7 @@ class LeadPriceCalendarActivity implements Activity {
 
     private $origin, $destination, $departureDate;
     
-    public function LeadPriceCalendarActivity($origin, $destination, $departureDate) {
+    public function __construct($origin, $destination, $departureDate) {
         $this->origin = $origin;
         $this->destination = $destination;
         $this->departureDate = $departureDate;

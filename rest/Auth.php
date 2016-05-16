@@ -5,8 +5,8 @@ class Auth {
     
     private $config;
     
-    public function Auth() {
-        $this->config = new SACSConfig();
+    public function __construct() {
+        $this->config = SACSConfig::getInstance();
     }
     
     public function callForToken() {
