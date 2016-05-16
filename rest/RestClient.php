@@ -9,11 +9,9 @@ define("DELETE", "DELETE");
 class RestClient {
     
     private $config;
-    private $tokenHolder;
     
-    public function RestClient() {
-        $this->config = new SACSConfig();
-        $this->tokenHolder = new TokenHolder();
+    public function __construct() {
+        $this->config = SACSConfig::getInstance();
     }
     
     public function executeGetCall($path, $request) {
@@ -28,7 +26,7 @@ class RestClient {
     
     private function buildHeaders() {
         $headers = array(
-            'Authorization : Bearer '.$this->tokenHolder->getToken()->access_token,
+            'Authorization : Bearer '.TokenHolder::getToken()->access_token,
             'Accept : */*'
         );
         return $headers;
