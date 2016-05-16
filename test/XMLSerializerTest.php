@@ -36,12 +36,4 @@ class XMLSerializerTest extends PHPUnit_Framework_TestCase {
         $this->assertNotEquals(0, strpos($result, 'xmlns="http://heaven.com"'));
     }
     
-    public function testShouldReturnXmlWithNamespaceAndAttributesFromObject() {
-        $testObject = new stdClass();
-        $testObject->_attributes = array("good" => "true");
-        $testObject->_namespace = "http://heaven.com";
-        $testObject->son = new stdClass();
-        $testObject->son->daughter = "Erica";
-        echo XMLSerializer::generateValidXmlFromObj($testObject);
-    }
 }
