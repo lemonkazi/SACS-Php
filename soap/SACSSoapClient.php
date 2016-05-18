@@ -12,7 +12,7 @@ class SACSSoapClient {
     private $lastInFlow = false;
     private $actionName;
 
-    public function _construct($actionName) {
+    public function __construct($actionName) {
         $this->actionName = $actionName;
     }
 
@@ -88,7 +88,7 @@ class SACSClient {
         //Data, connection, auth
         $config = SACSConfig::getInstance();
         $soapUrl = $config->getSoapProperty("environment");
-
+        
         // xml post structure
         $xml_post_string = '<SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">'
                 . '<SOAP-ENV:Header>'

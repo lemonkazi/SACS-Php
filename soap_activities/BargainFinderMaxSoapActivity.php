@@ -37,7 +37,7 @@ class BargainFinderMaxSoapActivity implements Activity {
                 )
             ),
             "OriginDestinationInformation" => array(
-                "DepartureDateTime" => "2016-05-07T10:00:00",
+                "DepartureDateTime" => "2016-05-20T10:00:00",
                 "OriginLocation" => array("_attributes" => array("LocationCode"=>"JFK")),
                 "DestinationLocation" => array("_attributes" => array("LocationCode"=>"LAX")),
                 "TPA_Extensions" => array(
