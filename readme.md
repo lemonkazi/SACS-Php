@@ -21,6 +21,8 @@ Run the application by executing:
 `php -S localhost:8000`
 from the project folder.
 
+In order to execute the example REST workflow, go to `http://localhost:8000/form.html`, input and submit all the fields.
+To run the SOAP workflow, simply go to `http://localhost:8000/start_soap_workflow.php`.
 ## Quickstart “How to”
 The workflow’s activities are written as implementation of the Activity interface from the *workflow* folder, which contains one abstract method *run()* which takes the shared context as the parameter. The implementation should construct the request object (or just setup the URL, like in the *InstaFlight* case), execute a rest call, insert the call’s result into the *sharedContext* and return the next activity to be run.
 
