@@ -4,6 +4,8 @@ The Sabre API Code Samples for PHP project’s purpose is to provide the referen
 ## Configuring the application
 The configuration is located in *SACSRestConfig.ini* file. It keeps the properties which are needed to connect and authenticate to the Sabre’s REST webservices. They are being read by the *SACSConfig* class, which contains the *getRestProperty()* which reads the value of the property. For configuration for SOAP webservices look into the *SACSSoapConfig.ini* file, and you can retrieve them using the *getSoapProperty()* method.
 
+Your credentials available in the Sabre Dev Studio are given in such a format: `V1:userId:group:domain`, so they should be put into separate properties in the *.ini* file. 
+
 Although the credentials are not encrypted right now to lower the project entry time, it is strongly recommended to use the encryption in production systems and do not keep the credentials in plain text.
 
 Please register at https://developer.sabre.com in order to obtain your own credentials.
