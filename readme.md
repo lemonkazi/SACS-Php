@@ -16,6 +16,7 @@ In the php.ini file, enable the following modules by uncommenting those lines:
 - extension=php_curl.dll
 - extension=php_mbstring.dll
 - extension=php_openssl.dll
+- extension=php_soap.dll
 
 Run the application by executing:
 `php -S localhost:8000`
