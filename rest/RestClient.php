@@ -26,8 +26,8 @@ class RestClient {
     
     private function buildHeaders() {
         $headers = array(
-            'Authorization : Bearer '.TokenHolder::getToken()->access_token,
-            'Accept : */*'
+            'Authorization: Bearer '.TokenHolder::getToken()->access_token,
+            'Accept: */*'
         );
         return $headers;
     }

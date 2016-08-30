@@ -9,10 +9,10 @@ class TokenHolder {
     
     public static function getToken() {
         
-        if (TokenHolder::$token == null || mktime() > TokenHolder::$expirationDate) {
+        if (TokenHolder::$token == null || time() > TokenHolder::$expirationDate) {
             $authCall = new Auth();
             TokenHolder::$token = $authCall->callForToken();
-            TokenHolder::$expirationDate = mktime() + TokenHolder::$token->expires_in;
+            TokenHolder::$expirationDate = time() + TokenHolder::$token->expires_in;
             
         }
         return TokenHolder::$token;

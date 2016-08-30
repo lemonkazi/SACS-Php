@@ -11,12 +11,12 @@ class Auth {
     
     public function callForToken() {
         $ch = curl_init($this->config->getRestProperty("environment")."/v2/auth/token");
-        $headers = array(
-            'Authorization : Basic '.$this->buildCredentials(),
-            'Accept : */*',
-            'Content-Type : application/x-www-form-urlencoded'
-        );
         $vars = "grant_type=client_credentials";
+        $headers = array(
+            'Authorization: Basic '.$this->buildCredentials(),
+            'Accept: */*',
+            'Content-Type: application/x-www-form-urlencoded'
+        );
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_VERBOSE, true);
