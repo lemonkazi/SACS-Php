@@ -50,7 +50,7 @@ class RestClient {
         case POST:
             curl_setopt($ch, CURLOPT_URL, $this->config->getRestProperty("environment").$path);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
-            array_push($headers, 'Content-Type : application/json');
+            array_push($headers, 'Content-Type: application/json');
             break;
         }
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
